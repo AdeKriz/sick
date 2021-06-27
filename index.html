@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="alert--success">
+        <img class="icon" src="/images/check-mark-circle.svg" alt="alert-check" />
+        <p class="success">Požadavek byl potvrzen.</p>
+    </div>
+
+    <div class="alert--info">
+        <div class="timer_container">
+            <button class="timer_btn"> <span class="timer">2:42</span></button>
+        </div>
+        <p class="info">Potvrzení požadavku</p>
+        <p class="request"><a href="" class="request">Odeslat SMS</a> s potvrzovacím kódem.</p>
+    </div>
+
+    <div class="alert--error">
+        <img class="icon" src="/images/close-round.svg" alt="alert-close" />
+        <p class="error">Požadavek nebyl potvrzen.</p>
+        <p class="request">
+            <a href="">
+                <img class="request_img" src="/images/circle arrow.svg" alt="request-reload" />
+                Zkusit znovu
+            </a>
+        </p>
+    </div>
+</body>
+
+</html>
