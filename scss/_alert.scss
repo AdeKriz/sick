@@ -1,0 +1,113 @@
+//colors
+$color-error: #F21D2F;
+$color-info: #5C548C;
+$color-success: #49BF66;
+
+//breakpoints
+$break-small: 640px;
+
+//padding
+$pad: 20px;
+
+%alert {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: $pad 2*$pad;
+    margin: $pad;
+    border-radius: 5px;
+    border-left: 5px solid;
+
+    @media only screen and (max-width: $break-small) {
+        text-align: center;
+    }
+    
+    @media only screen and (min-width: $break-small) {
+        display: grid;
+        grid-template-columns: 60px auto 1fr;
+        column-gap: 2*$pad;
+        align-items: center;
+    }
+}
+
+.alert--success {
+    background-color: lighten($color: $color-success, $amount: 40%);
+    border-color: $color-success;
+    @extend %alert;
+}
+
+.alert--info {
+    background-color: lighten($color-info, $amount: 50%);
+    border-color: $color-info;
+    @extend %alert;
+}
+
+.alert--error {
+    background-color: lighten($color: $color-error, $amount: 40%);
+    border-color: $color-error;
+    @extend %alert;
+}
+
+%message {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.success {
+    @extend %message;
+    color: $color-success;  
+}
+
+.info {
+    @extend %message;
+    color: darken($color: $color-info, $amount: 10%);
+    grid-column: span 2;
+}
+
+.error {
+    @extend %message;
+    color: $color-error;
+}
+
+.timer {
+    color: $color-info;
+}
+
+.timer_container {
+    position: relative;
+    z-index: 1;
+    grid-row: 1/ span 2;
+}
+  
+.timer_btn::-moz-focus-inner { border: 0; }
+  
+.timer_btn {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    background: white;
+    border: none;
+    border-radius: 100%;
+    outline: none;
+    transition: all 300ms ease;
+    
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      transform-origin: center;
+      border-radius: 100%;    
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+
+      animation: pulse_shadow 2s ease infinite;
+    }
+}
+  
+@keyframes pulse_shadow {
+    0% {box-shadow: 0px 0px 0px 0px rgba(37, 38, 39, 0.25);}
+    100% {box-shadow: 0px 0px 3px 15px rgba(70, 71, 71, 0);}
+}
+
